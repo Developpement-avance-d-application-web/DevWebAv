@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<body>
+<header th:fragment="banner">
+  <p><strong>Église de l'Empire</strong> — Foi · Ordre · Tradition</p>
+  <nav aria-label="Navigation principale">
+    <a th:href="@{/hello}">Accueil</a> |
+    <a th:href="@{/recherche-reference}">Rechercher un article</a>
+  </nav>
+</header>
+<footer th:fragment="footer">
+  <p>Église de l'Empire — Boutique de matériel liturgique</p>
+</footer>
+</body>
+</html>

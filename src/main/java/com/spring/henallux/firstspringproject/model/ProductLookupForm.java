@@ -1,20 +1,18 @@
 package com.spring.henallux.firstspringproject.model;
 
-public class MagicKeyForm {
-    public MagicKeyForm() {
+// Données saisies dans le formulaire de recherche, pas un produit du catalogue.
+// Un objet Java contenant la référence saisie pour chercher un article.
+public class ProductLookupForm {
+    private String reference;
+
+    public ProductLookupForm() {
     }
 
-    public String getMagicKey() {
-        return magicKey;
+    public String getReference() {
+        return reference;
     }
 
-    public MagicKeyForm(String magicKey) {
-        this.magicKey = magicKey;
+    public void setReference(String reference) {
+        this.reference = reference;
     }
-
-    public void setMagicKey(String magicKey) {
-        this.magicKey = magicKey;
-    }
-
-    private String magicKey;
 }

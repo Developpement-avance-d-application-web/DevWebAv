@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<body>
+<main layout:fragment="main-content">
+  <h1 th:text="${product.name}">Nom de l'article</h1>
+  <p>Référence : <span th:text="${product.reference}"></span></p>
+  <p th:text="${product.description}"></p>
+  <p>Prix : <strong th:text="${#numbers.formatDecimal(product.unitPrice, 1, 'WHITESPACE', 2, 'COMMA')} + ' €'"></strong></p>
+  <a th:href="@{/recherche-reference}">Rechercher un autre article</a>
+</main>
+</body>
+</html>

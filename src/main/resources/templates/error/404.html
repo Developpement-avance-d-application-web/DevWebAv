@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Page introuvable — Église de l'Empire</title></head>
+<body>
+<header th:replace="~{fragments/fragments :: banner}"></header>
+<main>
+  <h1>Page ou produit introuvable</h1>
+  <p>Cette adresse ne correspond à aucun article disponible.</p>
+  <a th:href="@{/recherche-reference}">Rechercher un article</a>
+</main>
+<footer th:replace="~{fragments/fragments :: footer}"></footer>
+</body>
+</html>

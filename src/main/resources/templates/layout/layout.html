@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title th:text="${title}">Église de l'Empire</title>
+  <link rel="stylesheet" th:href="@{/css/static.css}">
+</head>
+<body>
+<header th:replace="~{fragments/fragments :: banner}"></header>
+<main layout:fragment="main-content"></main>
+<footer th:replace="~{fragments/fragments :: footer}"></footer>
+</body>
+</html>

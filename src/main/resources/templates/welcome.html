@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Bienvenue sur le site</title>
-</head>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
 <body>
-
+<main layout:fragment="main-content">
+  <h1>Bienvenue à la boutique de l'Empire</h1>
+  <p>Calices, patènes et encensoirs pour une liturgie dans toute la galaxie.</p>
+  <a th:href="@{/recherche-reference}">Rechercher un article par sa référence</a>
+</main>
 </body>
 </html>
