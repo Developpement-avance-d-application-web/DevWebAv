@@ -12,4 +12,9 @@ public class WelcomeController {
         // Nom du template à rendre, pas le texte envoyé au navigateur.
         return "welcome";
     }
+    @GetMapping("/societe")
+    public String showCompany(Model model) {
+        model.addAttribute("title", "Notre maison — Église de l’Empire");
+        return "company";
+    }
 }

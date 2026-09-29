@@ -3,24 +3,15 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/layout}">
 <body>
-<main layout:fragment="main-content">
-  <h1>Rechercher un article</h1>
-  <form th:action="@{/recherche-reference}" th:object="${productLookupForm}" method="post">
-    <label for="reference">Référence de l'article</label>
-    <input type="text" th:field="*{reference}" placeholder="CAL-001"
-           maxlength="30" aria-describedby="reference-error">
-    <p id="reference-error" th:if="${#fields.hasErrors('reference')}"
-       th:errors="*{reference}" role="alert"></p>
-    <button type="submit">Rechercher</button>
-  </form>
-  <h2>Articles disponibles</h2>
-  <ul>
-    <li th:each="product : ${products}">
-      <span th:text="${product.reference}">CAL-001</span> —
-      <a th:href="@{/produits/{id}(id=${product.id})}"
-         th:text="${product.name}">Calice impérial</a>
-    </li>
-  </ul>
+<main id="main-content" layout:fragment="main-content" class="page-content ">
+  <nav class="breadcrumb" aria-label="Fil d’Ariane"><a th:href="@{/hello}">Accueil</a><span>/</span><span>Recherche</span></nav>
+  <div class="search-layout"><section class="surface search-panel"><p class="eyebrow">Retrouver une pièce</p><h1>Rechercher un article</h1><p>Vous connaissez sa référence ? Retrouvez directement sa fiche.</p>
+    <form th:action="@{/recherche-reference}" th:object="${productLookupForm}" method="post">
+      <label for="reference">Référence de l’article</label><input type="text" th:field="*{reference}" placeholder="Ex. CAL-001" maxlength="30" aria-describedby="reference-error" th:attr="aria-invalid=${#fields.hasErrors('reference')}">
+      <p id="reference-error" th:if="${#fields.hasErrors('reference')}" th:errors="*{reference}" role="alert"></p>
+      <button type="submit">Rechercher <span aria-hidden="true">→</span></button>
+    </form>
+  </section><section class="reference-list"><p class="eyebrow">Les pièces de la collection</p><h2>Articles disponibles</h2><ul><li th:each="product : ${products}"><a th:href="@{/produits/{id}(id=${product.id})}"><span th:text="${product.reference}"></span><strong th:text="${product.name}"></strong><b aria-hidden="true">↗</b></a></li></ul></section></div>
 </main>
 </body>
 </html>

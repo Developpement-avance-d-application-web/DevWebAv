@@ -1,13 +1,3 @@
 <!DOCTYPE html>
-<html lang="fr" xmlns:th="http://www.thymeleaf.org">
-<head><meta charset="UTF-8"><title>Page introuvable — Église de l'Empire</title></head>
-<body>
-<header th:replace="~{fragments/fragments :: banner}"></header>
-<main>
-  <h1>Page ou produit introuvable</h1>
-  <p>Cette adresse ne correspond à aucun article disponible.</p>
-  <a th:href="@{/recherche-reference}">Rechercher un article</a>
-</main>
-<footer th:replace="~{fragments/fragments :: footer}"></footer>
-</body>
-</html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Page introuvable — Église de l’Empire</title><link rel="stylesheet" th:href="@{/css/static.css}"></head>
+<body><a class="skip-link" href="#main-content">Aller au contenu</a><header th:replace="~{fragments/fragments :: banner}"></header><main id="main-content" class="page-content prose-page"><div class="surface prose-panel"><p class="eyebrow">Erreur 404</p><h1>Page ou produit introuvable</h1><p>Cette adresse ne correspond à aucun article disponible.</p><a class="button" th:href="@{/catalogue}">Retrouver les collections</a></div></main><footer th:replace="~{fragments/fragments :: footer}"></footer></body></html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<body>
+<main id="main-content" class="page-content prose-page" layout:fragment="main-content">
+  <div class="surface prose-panel"><p class="eyebrow">Église de l’Empire</p>
+  <h1>Prévisualisation de l’ajout</h1>
+  <p>Article : <strong th:text="${product.name}"></strong></p>
+  <p>Quantité : <strong th:text="${quantity}"></strong></p>
+  <p>Ajout prêt : le panier en session sera réalisé au labo 4. Aucun panier n’a encore été enregistré.</p>
+  <a th:href="@{/produits/{id}(id=${product.id})}">Retour à la fiche produit</a>
+  </div>
+</main>
+</body>
+</html>

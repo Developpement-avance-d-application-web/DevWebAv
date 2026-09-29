@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<body>
+<main id="main-content" class="page-content registration-page" layout:fragment="main-content">
+  <p class="eyebrow">Rejoindre la maison impériale</p>
+  <h1>Inscription client</h1>
+  <p>Les champs indiqués « facultatif » peuvent rester vides.</p>
+  <form class="registration-form surface" th:action="@{/inscription}" th:object="${registrationForm}" method="post">
+    <div class="form-field"><label for="firstName">Prénom</label>
+      <input type="text" th:field="*{firstName}" aria-describedby="firstName-error">
+      <p id="firstName-error" th:errors="*{firstName}" role="alert"></p></div>
+    <div class="form-field"><label for="lastName">Nom</label>
+      <input type="text" th:field="*{lastName}" aria-describedby="lastName-error">
+      <p id="lastName-error" th:errors="*{lastName}" role="alert"></p></div>
+    <div class="form-field"><label for="login">Login</label>
+      <input type="text" th:field="*{login}" aria-describedby="login-error">
+      <p id="login-error" th:errors="*{login}" role="alert"></p></div>
+    <div class="form-field"><label for="email">Adresse email</label>
+      <input type="email" th:field="*{email}" aria-describedby="email-error">
+      <p id="email-error" th:errors="*{email}" role="alert"></p></div>
+    <div class="form-field"><label for="phone">Téléphone</label>
+      <input type="tel" th:field="*{phone}" aria-describedby="phone-error">
+      <p id="phone-error" th:errors="*{phone}" role="alert"></p></div>
+    <div class="form-field"><label for="addressLine1">Adresse de livraison</label>
+      <input type="text" th:field="*{addressLine1}" aria-describedby="addressLine1-error">
+      <p id="addressLine1-error" th:errors="*{addressLine1}" role="alert"></p></div>
+    <div class="form-field"><label for="addressLine2">Complément d’adresse (facultatif)</label>
+      <input type="text" th:field="*{addressLine2}" aria-describedby="addressLine2-error">
+      <p id="addressLine2-error" th:errors="*{addressLine2}" role="alert"></p></div>
+    <div class="form-field"><label for="postalCode">Code postal</label>
+      <input type="text" th:field="*{postalCode}" aria-describedby="postalCode-error">
+      <p id="postalCode-error" th:errors="*{postalCode}" role="alert"></p></div>
+    <div class="form-field"><label for="city">Ville</label>
+      <input type="text" th:field="*{city}" aria-describedby="city-error">
+      <p id="city-error" th:errors="*{city}" role="alert"></p></div>
+    <div class="form-field"><label for="organizationName">Organisation ou paroisse (facultatif)</label>
+      <input type="text" th:field="*{organizationName}" aria-describedby="organizationName-error">
+      <p id="organizationName-error" th:errors="*{organizationName}" role="alert"></p></div>
+    <div class="form-field"><label for="password">Mot de passe</label>
+      <input type="password" id="password" name="password" autocomplete="new-password" aria-describedby="password-error">
+      <p id="password-error" th:errors="*{password}" role="alert"></p></div>
+    <div class="form-field"><label for="passwordConfirmation">Confirmation du mot de passe</label>
+      <input type="password" id="passwordConfirmation" name="passwordConfirmation" autocomplete="new-password" aria-describedby="passwordConfirmation-error">
+      <p id="passwordConfirmation-error" th:errors="*{passwordConfirmation}" role="alert"></p></div>
+    <div class="form-field"><label for="countryCode">Pays de livraison</label>
+      <select th:field="*{countryCode}" aria-describedby="countryCode-error">
+        <option value="">Choisir un pays</option>
+        <option th:each="country : ${countries}" th:value="${country.code}" th:text="${country.name}"></option>
+      </select>
+      <p id="countryCode-error" th:errors="*{countryCode}" role="alert"></p>
+    </div>
+    <fieldset class="newsletter-field">
+      <legend>Recevoir les nouvelles de la boutique (facultatif)</legend>
+      <input id="newsletterYes" type="radio" th:field="*{newsletterOptIn}" th:value="true">
+      <label for="newsletterYes">Oui</label>
+      <input id="newsletterNo" type="radio" th:field="*{newsletterOptIn}" th:value="false">
+      <label for="newsletterNo">Non</label>
+      <p th:errors="*{newsletterOptIn}" role="alert"></p>
+    </fieldset>
+    <button class="registration-submit" type="submit">Valider mon inscription</button>
+  </form>
+</main>
+</body>
+</html>

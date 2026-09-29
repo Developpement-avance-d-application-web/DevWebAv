@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<body>
+<main id="main-content" layout:fragment="main-content" class="page-content catalog-page">
+  <nav class="breadcrumb" aria-label="Fil d’Ariane"><a th:href="@{/hello}">Accueil</a><span aria-hidden="true">/</span><a th:href="@{/catalogue}">Collections</a><span th:if="${selectedCategory != null}" aria-hidden="true">/</span><span th:if="${selectedCategory != null}" th:text="${selectedCategory.name}"></span></nav>
+  <div class="catalog-layout">
+    <aside class="catalog-sidebar">
+      <nav class="category-panel" aria-label="Catégories">
+        <h2>Catégories</h2>
+        <a th:href="@{/catalogue}" th:classappend="${selectedCategory == null} ? 'is-active' : ''" th:attr="aria-current=${selectedCategory == null ? 'page' : null}">Toutes les collections</a>
+        <a th:each="category : ${categories}" th:href="@{/catalogue(categoryId=${category.id})}"
+           th:text="${category.name}" th:classappend="${selectedCategory != null and selectedCategory.id == category.id} ? 'is-active' : ''"
+           th:attr="aria-current=${selectedCategory != null and selectedCategory.id == category.id ? 'page' : null}"></a>
+      </nav>
+      <div class="editorial-card"><img th:src="@{/images/products/enc-001.png}" alt="Encensoir de la Flotte dans la pénombre" width="512" height="512" loading="lazy"><p>Même dans<br>les ténèbres,<br>l’encens s’élève.</p><img class="editorial-mark" th:src="@{/images/empire-mark.svg}" alt="" width="48" height="48"><span>Église de l’Empire</span></div>
+    </aside>
+    <section class="catalog-main">
+      <div class="section-heading"><div><p class="eyebrow">La collection impériale</p><h1 th:text="${selectedCategory != null ? selectedCategory.name : 'Les essentiels du culte'}">Les essentiels du culte</h1></div><span class="collection-count" th:if="${products != null}" th:text="${#lists.size(products)} + ' articles'"></span></div>
+      <p class="section-intro">Calices, patènes, encens et textiles : les objets qui donnent corps à la tradition.</p>
+      <p class="notice error-message" th:if="${categoryError != null}" th:text="${categoryError}" role="alert"></p>
+      <div class="product-grid" th:if="${products != null}">
+        <th:block th:each="product : ${products}"><article th:replace="~{fragments/fragments :: productCard(${product})}"></article></th:block>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>

@@ -1,15 +1,55 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <body>
-<header th:fragment="banner">
-  <p><strong>Église de l'Empire</strong> — Foi · Ordre · Tradition</p>
-  <nav aria-label="Navigation principale">
-    <a th:href="@{/hello}">Accueil</a> |
-    <a th:href="@{/recherche-reference}">Rechercher un article</a>
-  </nav>
+<header th:fragment="banner" class="site-header">
+  <div class="header-inner">
+    <a class="brand" th:href="@{/hello}" aria-label="Église de l’Empire — accueil">
+      <img class="brand-mark" th:src="@{/images/empire-mark.svg}" alt="" width="72" height="72">
+      <span><span class="brand-name">Église de l’Empire</span><span class="brand-motto">Foi · Ordre · Tradition</span></span>
+    </a>
+    <div class="header-right">
+      <div class="header-top"><span class="header-creed">Que sa volonté soit faite</span>
+        <a th:href="@{/recherche-reference}" class="utility-link" aria-label="Rechercher un article"><span aria-hidden="true">⌕</span> Recherche</a>
+        <a th:href="@{/inscription}" class="utility-link">Inscription</a>
+      </div>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a th:href="@{/hello}">Accueil</a>
+        <a th:href="@{/catalogue}">Collections</a>
+        <a th:href="@{/catalogue(categoryId='objets')}">Objets liturgiques</a>
+        <a th:href="@{/societe}">Notre maison</a>
+      </nav>
+    </div>
+  </div>
 </header>
-<footer th:fragment="footer">
-  <p>Église de l'Empire — Boutique de matériel liturgique</p>
+
+<section th:fragment="hero" class="hero" aria-label="Notre univers">
+  <div class="hero-inner">
+    <p class="eyebrow">Église de l’Empire · Collections liturgiques</p>
+    <p class="hero-title">Le sacré.<br>L’ordre. L’Empire.</p>
+    <p class="hero-subtitle">Pour un culte qui rayonne<br>dans toute la galaxie.</p>
+    <p class="hero-quote">« Par l’ordre, toutes choses deviennent possibles. »<br><span>La tradition impériale</span></p>
+  </div>
+  <p class="hero-seal">Discipline<br>Adoration<br>Unité</p>
+</section>
+
+<article th:fragment="productCard(product)" class="product-card">
+  <a class="product-visual" th:href="@{/produits/{id}(id=${product.id})}">
+    <img th:src="@{/images/products/{reference}.png(reference=${#strings.toLowerCase(product.reference)})}"
+         th:alt="${product.name}" width="512" height="512" loading="lazy">
+    <span class="product-reference" th:text="${product.reference}"></span>
+  </a>
+  <div class="product-card-body">
+    <h3><a th:href="@{/produits/{id}(id=${product.id})}" th:text="${product.name}"></a></h3>
+    <p class="product-description" th:text="${product.description}"></p>
+    <p class="price" th:text="${#numbers.formatDecimal(product.unitPrice, 1, 'WHITESPACE', 2, 'COMMA')} + ' €'"></p>
+    <a class="button button-small" th:href="@{/produits/{id}(id=${product.id})}">Découvrir l’article <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+<footer th:fragment="footer" class="site-footer">
+  <div><span class="footer-brand">Église de l’Empire</span><p>Objets de culte. Héritage impérial.</p></div>
+  <nav aria-label="Navigation de pied de page"><a th:href="@{/catalogue}">Collections</a><a th:href="@{/societe}">Notre maison</a><a th:href="@{/inscription}">Inscription</a></nav>
+  <p class="footer-note">Une boutique fictive dans une galaxie lointaine.</p>
 </footer>
 </body>
 </html>

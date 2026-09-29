@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<body>
+<main id="main-content" class="page-content prose-page" layout:fragment="main-content">
+  <div class="surface prose-panel"><p class="eyebrow">Église de l’Empire</p>
+  <h1>Formulaire validé</h1>
+  <p>Formulaire valide pour <span th:text="${firstName}"></span> <span th:text="${lastName}"></span>.</p>
+  <p>L’enregistrement du compte sera ajouté avec la persistance. Aucun compte n’a encore été créé.</p>
+  <a th:href="@{/catalogue}">Parcourir le catalogue</a>
+  </div>
+</main>
+</body>
+</html>

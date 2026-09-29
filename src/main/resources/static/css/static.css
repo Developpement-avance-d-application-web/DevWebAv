@@ -1,0 +1,150 @@
+/* Labo 3.5 — Présentation commune. Données et validations restent dans Spring. */
+/* 1. Palette et base */
+:root { color-scheme: dark; --bg:#0b0e11; --panel:#141a20; --panel-light:#202830; --ink:#f0eee8; --muted:#b3bbc2; --border:#38424b; --red:#970e1e; --red-hover:#b51b2b; --focus:#e8c78e; --serif:Georgia,"Times New Roman",serif; --sans:"Segoe UI",Arial,sans-serif; }
+* { box-sizing:border-box; }
+body { margin:0; background:radial-gradient(ellipse at 75% 40%,#16202755,transparent 65%),var(--bg); color:var(--ink); font:15px/1.6 var(--sans); }
+a { color:inherit; text-decoration:none; }
+a:hover { color:#fff; }
+img { display:block; max-width:100%; height:auto; }
+button,input,select { font:inherit; }
+h1,h2,h3,p { margin-top:0; }
+h1,h2,h3 { font-family:var(--serif); font-weight:400; line-height:1.15; }
+h1 { font-size:clamp(29px,3vw,42px); margin-bottom:14px; }
+h2 { font-size:27px; }
+:focus-visible { outline:3px solid var(--focus); outline-offset:5px; }
+.skip-link { position:absolute; left:12px; top:-90px; padding:10px 20px; background:#fff; color:#111; z-index:10; }
+.skip-link:focus { top:12px; color:#111; }
+.eyebrow { color:var(--muted); font-size:10px; letter-spacing:.23em; text-transform:uppercase; margin-bottom:12px; }
+.text-link { color:#ded6c5; border-bottom:1px solid #817762; padding-bottom:3px; }
+
+/* 2. Fragments : marque et navigation */
+.site-header { border-bottom:1px solid var(--border); background:linear-gradient(110deg,#0b0e10,#07090b); }
+.header-inner { max-width:1440px; padding:24px 36px 20px; margin:auto; display:flex; align-items:center; gap:42px; }
+.brand { display:flex; gap:20px; align-items:center; flex-shrink:0; }
+.brand-mark { width:70px; height:70px; }
+.brand-name { display:block; font:34px/1.15 var(--serif); white-space:nowrap; }
+.brand-motto { display:block; margin-top:10px; text-transform:uppercase; letter-spacing:.24em; font:10px var(--serif); text-align:center; }
+.brand-motto::before,.brand-motto::after { content:"—"; color:#c82030; margin:0 9px; }
+.header-right { flex:1; min-width:0; }
+.header-top { display:flex; align-items:center; justify-content:flex-end; gap:22px; margin-bottom:23px; }
+.header-creed { margin-right:auto; font:9px var(--serif); text-transform:uppercase; letter-spacing:.28em; }
+.utility-link { font-size:12px; white-space:nowrap; color:#d5d8dc; }
+.utility-link span { font-size:24px; vertical-align:middle; margin-right:5px; }
+.main-nav { display:flex; gap:30px; justify-content:flex-end; flex-wrap:wrap; }
+.main-nav a { font:11px var(--serif); text-transform:uppercase; letter-spacing:.08em; padding:0 0 9px; border-bottom:1px solid transparent; }
+.main-nav a:hover { border-color:#bc182a; }
+
+/* 3. Image décorative, texte HTML lisible par-dessus */
+.hero { position:relative; isolation:isolate; min-height:320px; border-bottom:1px solid #59616a; background:#0b1015 url('../images/imperial-cathedral.png') center 52%/cover no-repeat; }
+.hero::before { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,#030609e8 0%,#05080bbc 32%,#07101730 62%,#03060922),linear-gradient(0deg,#05090a55,transparent 70%); }
+.hero-inner { max-width:1440px; margin:auto; padding:35px 50px; }
+.hero .eyebrow { font-size:9px; color:#d2c9bd; }
+.hero-title { font:clamp(34px,4vw,54px)/1.1 var(--serif); letter-spacing:.035em; margin-bottom:15px; }
+.hero-subtitle { font:12px/1.9 var(--serif); text-transform:uppercase; letter-spacing:.29em; margin-bottom:18px; }
+.hero-quote { font:italic 13px/1.65 var(--serif); margin-bottom:0; color:#d0d1d2; }
+.hero-quote span { font-size:10px; letter-spacing:.15em; }
+.hero-seal { position:absolute; bottom:30px; right:max(4%,calc((100vw - 1340px)/2)); font:10px/2 var(--serif); letter-spacing:.3em; text-transform:uppercase; }
+
+/* 4. Catalogue : colonne de navigation et grille de cartes */
+.page-content { max-width:1440px; margin:0 auto; padding:28px 36px 64px; min-height:340px; }
+.breadcrumb { display:flex; flex-wrap:wrap; gap:12px; font-size:12px; color:var(--muted); margin-bottom:24px; }
+.breadcrumb span:last-child { color:var(--ink); }
+.catalog-layout { display:grid; grid-template-columns:230px minmax(0,1fr); gap:30px; }
+.category-panel { border:1px solid var(--border); border-radius:4px; overflow:hidden; background:linear-gradient(120deg,#171e24,#10161b); }
+.category-panel h2 { background:linear-gradient(110deg,#9c1022,#650b15); font-size:15px; letter-spacing:.12em; text-transform:uppercase; padding:16px 18px; margin:0 0 8px; }
+.category-panel a { display:block; font-size:13px; padding:12px 16px; border-left:3px solid transparent; }
+.category-panel a:last-child { margin-bottom:8px; }
+.category-panel a:hover,.category-panel .is-active { background:#2b333c; border-left-color:#b01b2d; }
+.editorial-card { position:relative; border:1px solid var(--border); margin-top:22px; background:#080b0e; padding-bottom:24px; text-align:center; overflow:hidden; }
+.editorial-card>img:first-child { width:100%; aspect-ratio:1; object-fit:cover; opacity:.8; }
+.editorial-card p { font:19px/1.7 var(--serif); text-transform:uppercase; letter-spacing:.14em; padding:0 15px; margin-top:8px; }
+.editorial-card .editorial-mark { width:43px; height:43px; margin:18px auto; }
+.editorial-card>span { font:9px var(--serif); letter-spacing:.25em; text-transform:uppercase; }
+.section-heading { display:flex; justify-content:space-between; align-items:center; gap:20px; }
+.section-heading .eyebrow { margin:2px 0 9px; }
+.section-heading h1 { font-size:34px; }
+.collection-count { color:var(--muted); font-size:11px; letter-spacing:.1em; white-space:nowrap; }
+.section-intro { font-size:13px; color:#d1d6da; margin-bottom:28px; }
+.product-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+.product-card { border:1px solid var(--border); border-radius:4px; overflow:hidden; background:linear-gradient(125deg,#202932,#161e25); display:flex; flex-direction:column; transition:transform .18s,border-color .18s; }
+.product-card:hover { transform:translateY(-3px); border-color:#88939c; }
+.product-visual { display:block; position:relative; overflow:hidden; background:#080b0d; }
+.product-visual img { width:100%; aspect-ratio:1; object-fit:cover; transition:transform .4s; }
+.product-card:hover .product-visual img { transform:scale(1.035); }
+.product-reference { position:absolute; top:12px; left:12px; font-size:9px; letter-spacing:.15em; color:#ddd; padding:3px 7px; border:1px solid #aaa4; background:#090c10aa; }
+.product-card-body { padding:14px; display:flex; flex-direction:column; flex:1; }
+.product-card h3 { font:16px/1.3 var(--serif); margin:0 0 6px; }
+.product-description { font-size:12px; line-height:1.5; color:var(--muted); margin-bottom:12px; flex:1; }
+.price { font-size:19px; font-variant-numeric:tabular-nums; margin-bottom:12px; }
+.button,button { display:inline-flex; align-items:center; justify-content:center; gap:18px; padding:12px 22px; color:#fff; background:linear-gradient(#a41324,#800c19); border:1px solid #bf2333; border-radius:3px; cursor:pointer; font-size:13px; text-decoration:none; min-height:44px; }
+.button:hover,button:hover { background:var(--red-hover); color:#fff; }
+.button-small { padding:9px 10px; font-size:12px; justify-content:space-between; width:100%; }
+
+/* 5. Fiches et formulaires : mêmes composants sur toutes les pages */
+.surface { background:linear-gradient(135deg,#1b232a,#11171c); border:1px solid var(--border); border-radius:5px; }
+.product-detail { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+.detail-visual { border:1px solid var(--border); background:#080a0d; }
+.detail-visual img { width:100%; aspect-ratio:1; object-fit:cover; }
+.detail-copy { max-width:520px; }
+.reference-label { font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+.detail-description { padding:22px 0; border-top:1px solid var(--border); margin-top:24px; color:#cbd0d5; }
+.detail-price { font:32px var(--serif); }
+.purchase-form { margin:24px 0; border-top:1px solid var(--border); padding-top:22px; }
+.purchase-controls { display:flex; gap:12px; }
+.purchase-controls input { width:90px; }
+label { display:block; margin-bottom:8px; font-size:13px; color:#e0e3e7; }
+input:not([type='radio']):not([type='hidden']),select { width:100%; min-height:46px; border:1px solid #53606b; border-radius:3px; color:var(--ink); background:#0e1419; padding:10px 12px; }
+input::placeholder { color:#939fa9; }
+.purchase-controls input:not([type='hidden']) { width:86px; flex-shrink:0; }
+input[aria-invalid='true'] { border-color:#f48491; }
+input[type='radio'] { accent-color:#bc2334; width:17px; height:17px; vertical-align:middle; }
+[role='alert'] { color:#ffacb5; font-size:13px; margin:8px 0 12px; }
+[role='alert']:empty { display:none; }
+.notice { border:1px solid #913442; padding:15px; background:#331920; }
+.search-layout { display:grid; grid-template-columns:1fr 1fr; gap:54px; align-items:start; }
+.search-panel { padding:32px; }
+.search-panel>p:not(.eyebrow) { color:var(--muted); }
+.search-panel form { margin-top:28px; }
+.search-panel button { margin-top:18px; }
+.reference-list { padding-top:12px; }
+.reference-list ul { list-style:none; margin:0; padding:0; }
+.reference-list li { border-bottom:1px solid var(--border); }
+.reference-list a { display:flex; align-items:center; gap:20px; padding:17px 0; }
+.reference-list a span { color:var(--muted); font-size:11px; letter-spacing:.08em; }
+.reference-list a strong { font-weight:400; flex:1; }
+.registration-page { max-width:1040px; padding-top:40px; }
+.registration-page>p:not(.eyebrow) { color:var(--muted); }
+.registration-form { display:grid; grid-template-columns:1fr 1fr; gap:24px 28px; padding:32px; margin-top:30px; }
+.form-field { min-width:0; }
+.newsletter-field { grid-column:1/-1; border:1px solid var(--border); padding:18px; margin:0; }
+legend { padding:0 8px; font-size:13px; }
+.newsletter-field label { display:inline; margin:0 24px 0 6px; }
+.registration-submit { grid-column:1/-1; justify-self:start; }
+.prose-page { max-width:920px; padding-top:48px; }
+.prose-panel { padding:42px; }
+.prose-panel p { color:#cbd1d5; }
+.prose-panel a:not(.button) { display:inline-block; margin-top:15px; color:#eed4b6; border-bottom:1px solid #aa8d6b; }
+
+/* 6. Accueil et pied de page */
+.welcome-intro { text-align:center; padding:15px 0 22px; }
+.welcome-intro>p:last-child { color:var(--muted); }
+.collection-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+.collection-tile { border:1px solid var(--border); background:var(--panel); position:relative; overflow:hidden; }
+.collection-tile img { width:100%; aspect-ratio:1; object-fit:cover; }
+.collection-tile>span { display:block; font:24px var(--serif); padding:24px; }
+.collection-tile small { display:block; font:9px var(--sans); text-transform:uppercase; letter-spacing:.17em; color:var(--muted); margin-bottom:12px; }
+.collection-tile b { float:right; font-weight:400; }
+.collection-tile:hover { border-color:#a0a8ae; }
+.welcome-actions { display:flex; justify-content:center; align-items:center; gap:25px; margin-top:30px; }
+.site-footer { border-top:1px solid var(--border); padding:32px max(36px,calc((100vw - 1368px)/2)); display:flex; align-items:center; gap:40px; background:#070a0c; }
+.footer-brand { font:23px var(--serif); }
+.site-footer p { color:var(--muted); font-size:11px; margin:8px 0 0; }
+.site-footer nav { display:flex; flex-wrap:wrap; gap:24px; font-size:12px; }
+.site-footer .footer-note { margin-left:auto; max-width:190px; }
+
+/* 7. Points de rupture : grille CSS native, sans dépendance supplémentaire. */
+@media (min-width:1600px) { .product-grid { grid-template-columns:repeat(4,minmax(0,1fr)); } }
+@media (max-width:1100px) { .header-inner { gap:25px; padding:20px 24px; } .brand-name { font-size:28px; } .brand-mark { width:58px; height:58px; } .header-creed { display:none; } .main-nav { gap:18px; } .catalog-layout { grid-template-columns:200px minmax(0,1fr); gap:24px; } .product-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .page-content { padding-left:24px; padding-right:24px; } }
+@media (max-width:760px) { .header-inner { flex-direction:column; align-items:stretch; gap:20px; } .brand { justify-content:center; } .header-right { display:flex; flex-direction:column; gap:18px; } .header-top { justify-content:center; margin:0; } .main-nav { justify-content:center; gap:12px 22px; } .hero { min-height:290px; background-position:64% center; } .hero-inner { padding:28px 24px; } .hero-seal { display:none; } .hero-title { font-size:39px; } .hero::before { background:linear-gradient(90deg,#04070ae8,#04070a80 70%,#04070a44); } .catalog-layout { grid-template-columns:1fr; } .editorial-card { display:none; } .category-panel { display:flex; flex-wrap:wrap; } .category-panel h2 { width:100%; padding:12px 16px; } .category-panel a { font-size:12px; flex:1 1 45%; padding:12px; } .category-panel a:last-child { margin-bottom:0; } .section-heading h1 { font-size:29px; } .product-detail,.search-layout { grid-template-columns:1fr; gap:28px; } .detail-copy { max-width:none; } .detail-visual { max-width:520px; width:100%; margin:auto; } .registration-form { padding:24px; gap:20px; } .collection-grid { grid-template-columns:1fr; max-width:500px; margin:auto; } .site-footer { flex-direction:column; text-align:center; gap:20px; padding:30px 24px; } .site-footer .footer-note { margin:0; max-width:none; } .welcome-actions { flex-wrap:wrap; } }
+@media (max-width:440px) { .page-content { padding:22px 16px 40px; } .brand-name { font-size:26px; } .brand { gap:12px; } .brand-mark { width:52px; height:52px; } .brand-motto { font-size:8px; } .hero-inner { padding-left:20px; } .hero-title { font-size:35px; } .hero-subtitle { font-size:10px; } .product-grid { gap:12px; } .product-card-body { padding:10px; } .product-card h3 { font-size:15px; } .product-description { font-size:11px; } .button-small { font-size:11px; padding:8px; gap:5px; } .price { font-size:17px; } .registration-form { grid-template-columns:1fr; padding:20px; } .search-panel,.prose-panel { padding:24px; } .purchase-controls { flex-wrap:wrap; } .reference-list a { gap:10px; } .reference-list a strong { font-size:13px; } .collection-count { display:none; } }
+@media (prefers-reduced-motion:reduce) { *,*::before,*::after { transition:none!important; scroll-behavior:auto!important; } }

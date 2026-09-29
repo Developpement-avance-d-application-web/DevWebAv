@@ -3,12 +3,18 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/layout}">
 <body>
-<main layout:fragment="main-content">
-  <h1 th:text="${product.name}">Nom de l'article</h1>
-  <p>Référence : <span th:text="${product.reference}"></span></p>
-  <p th:text="${product.description}"></p>
-  <p>Prix : <strong th:text="${#numbers.formatDecimal(product.unitPrice, 1, 'WHITESPACE', 2, 'COMMA')} + ' €'"></strong></p>
-  <a th:href="@{/recherche-reference}">Rechercher un autre article</a>
+<main id="main-content" layout:fragment="main-content" class="page-content ">
+  <nav class="breadcrumb" aria-label="Fil d’Ariane"><a th:href="@{/hello}">Accueil</a><span>/</span><a th:href="@{/catalogue(categoryId=${product.categoryId})}">Collection</a><span>/</span><span th:text="${product.name}"></span></nav>
+  <div class="product-detail">
+    <div class="detail-visual"><img th:src="@{/images/products/{reference}.png(reference=${#strings.toLowerCase(product.reference)})}" th:alt="${product.name}" width="1024" height="1024"></div>
+    <section class="detail-copy"><p class="eyebrow">La collection impériale</p><h1 th:text="${product.name}"></h1><p class="reference-label">Référence <span th:text="${product.reference}"></span></p><p class="detail-description" th:text="${product.description}"></p><p class="price detail-price" th:text="${#numbers.formatDecimal(product.unitPrice, 1, 'WHITESPACE', 2, 'COMMA')} + ' €'"></p>
+      <form class="purchase-form" th:action="@{/produits/{id}/ajout(id=${product.id})}" th:object="${addToCartForm}" method="post">
+        <label for="quantity">Quantité</label><div class="purchase-controls"><input type="number" th:field="*{quantity}" min="1" max="99" aria-describedby="quantity-error" th:attr="aria-invalid=${#fields.hasErrors('quantity')}"><button type="submit">Prévisualiser l’ajout <span aria-hidden="true">→</span></button></div>
+        <p id="quantity-error" th:errors="*{quantity}" role="alert"></p>
+      </form>
+      <a class="text-link" th:href="@{/recherche-reference}">Rechercher un autre article</a>
+    </section>
+  </div>
 </main>
 </body>
 </html>

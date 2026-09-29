@@ -1,0 +1,37 @@
+[
+  {
+    "image": "hero",
+    "destination": "src/main/resources/static/images/imperial-cathedral.png",
+    "prompt": "A cinematic ultra-wide website banner, aspect ratio 3:1. Monumental gothic cathedral of the Galactic Empire, dark towering columns, huge burgundy imperial banners, a luminous white cross in the distant apse and a solitary hooded black figure seen from behind on the RIGHT HALF. Silver-blue light and incense haze, richly detailed photorealistic film still, solemn atmosphere. LEFT THIRD very dark with unobtrusive architecture suitable for white text overlay. No text, no website UI, no watermark."
+  },
+  {
+    "image": "cal-001",
+    "destination": "src/main/resources/static/images/products/cal-001.png",
+    "prompt": "A single black and brushed silver ecclesiastical chalice bearing a small Galactic Empire cog emblem. Full object centered, foot visible, elegant engraved stem. Dark charcoal stone tabletop, black smoky studio background, soft dramatic silver rim lighting. Premium photorealistic catalog product photograph, square frame, object occupies 75% height, no text, no UI, no watermark."
+  },
+  {
+    "image": "pat-001",
+    "destination": "src/main/resources/static/images/products/pat-001.png",
+    "prompt": "A single shallow polished silver liturgical paten plate engraved with the Galactic Empire cog emblem in its center, propped at a slight angle so the face is visible. Dark charcoal stone tabletop and black smoky studio background. Premium photorealistic catalog photograph, square frame, object centered with 12% margins, soft dramatic silver lighting, no text, no UI, no watermark."
+  },
+  {
+    "image": "enc-001",
+    "destination": "src/main/resources/static/images/products/enc-001.png",
+    "prompt": "A single antique brass liturgical thurible incense burner with pierced domed lid, delicate chains and a small Galactic Empire emblem. Full object centered, slight smoke. Dark charcoal stone tabletop and black studio background. Premium photorealistic catalog photograph, square frame, object occupies 75% height, soft dramatic silver and warm brass lighting, no text, no UI, no watermark."
+  },
+  {
+    "image": "nav-001",
+    "destination": "src/main/resources/static/images/products/nav-001.png",
+    "prompt": "A single bronze boat-shaped liturgical incense vessel with matching spoon resting alongside, engraved small Galactic Empire emblem. Dark charcoal stone tabletop and black smoky studio background. Premium photorealistic catalog photograph, square frame, object centered with generous margins, soft dramatic warm bronze lighting, no text, no UI, no watermark."
+  },
+  {
+    "image": "cor-001",
+    "destination": "src/main/resources/static/images/products/cor-001.png",
+    "prompt": "A folded ivory linen altar corporal cloth with a finely embroidered black and silver Galactic Empire cog emblem at the center and subtle silver embroidered border. Dark charcoal stone tabletop and black studio background. Premium photorealistic catalog photograph, square frame, cloth centered, realistic woven linen, dramatic soft lighting, no text, no UI, no watermark."
+  },
+  {
+    "image": "eto-001",
+    "destination": "src/main/resources/static/images/products/eto-001.png",
+    "prompt": "A single black liturgical stole with burgundy lining and fine silver embroidered Galactic Empire cog motifs, arranged neatly in an inverted U shape on a charcoal stone tabletop. Black studio background, premium photorealistic catalog photograph, square frame, whole stole visible with margins, realistic embroidered textile, dramatic soft silver lighting, no text, no UI, no watermark."
+  }
+]

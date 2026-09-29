@@ -4,12 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title th:text="${title}">Église de l'Empire</title>
+  <meta name="theme-color" content="#0b0d0f">
+  <title th:text="${title}">Église de l’Empire</title>
+  <link rel="icon" type="image/svg+xml" th:href="@{/images/empire-mark.svg}">
   <link rel="stylesheet" th:href="@{/css/static.css}">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Aller au contenu</a>
 <header th:replace="~{fragments/fragments :: banner}"></header>
-<main layout:fragment="main-content"></main>
+<section th:replace="~{fragments/fragments :: hero}"></section>
+<main id="main-content" class="page-content" layout:fragment="main-content"></main>
 <footer th:replace="~{fragments/fragments :: footer}"></footer>
 </body>
 </html>

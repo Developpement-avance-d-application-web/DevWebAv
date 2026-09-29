@@ -3,10 +3,14 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/layout}">
 <body>
-<main layout:fragment="main-content">
-  <h1>Bienvenue à la boutique de l'Empire</h1>
-  <p>Calices, patènes et encensoirs pour une liturgie dans toute la galaxie.</p>
-  <a th:href="@{/recherche-reference}">Rechercher un article par sa référence</a>
+<main id="main-content" layout:fragment="main-content" class="page-content ">
+  <div class="welcome-intro"><p class="eyebrow">Foi · Ordre · Tradition</p><h1>Bienvenue à la boutique de l’Empire</h1><p>Des objets de culte à la mesure de votre dévotion.<br>Découvrez les collections de la maison impériale.</p></div>
+  <div class="collection-grid">
+    <a class="collection-tile" th:href="@{/catalogue(categoryId='objets')}"><img th:src="@{/images/products/cal-001.png}" alt="Calice impérial" width="512" height="512"><span><small>01 / Objets d’autel</small>Objets liturgiques <b aria-hidden="true">→</b></span></a>
+    <a class="collection-tile" th:href="@{/catalogue(categoryId='encens')}"><img th:src="@{/images/products/enc-001.png}" alt="Encensoir de la Flotte" width="512" height="512"><span><small>02 / Le geste et le parfum</small>Encens et accessoires <b aria-hidden="true">→</b></span></a>
+    <a class="collection-tile" th:href="@{/catalogue(categoryId='textiles')}"><img th:src="@{/images/products/eto-001.png}" alt="Étole impériale" width="512" height="512"><span><small>03 / Les étoffes du rite</small>Textiles liturgiques <b aria-hidden="true">→</b></span></a>
+  </div>
+  <div class="welcome-actions"><a class="button" th:href="@{/catalogue}">Explorer les collections <span aria-hidden="true">→</span></a><a class="text-link" th:href="@{/recherche-reference}">Rechercher une référence</a></div>
 </main>
 </body>
 </html>

@@ -5,6 +5,7 @@ import com.spring.henallux.firstspringproject.model.ProductLookupForm;
 import com.spring.henallux.firstspringproject.service.CatalogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import jakarta.validation.Valid;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,19 +33,13 @@ public class ProductLookupController {
 
     @PostMapping
     public String searchProduct(
-            @ModelAttribute("productLookupForm") ProductLookupForm formulaireDeRechercheDArticle,
+            @Valid @ModelAttribute("productLookupForm") ProductLookupForm formulaireDeRechercheDArticle,
             BindingResult errors,
             Model model) {
-        // Spring a rempli form.reference avec le champ "reference" du POST.
-        String reference = formulaireDeRechercheDArticle.getReference();
+        // Spring a rempli et validé la référence avant cet appel.
         Product product = null;
-        if (reference == null || reference.isBlank()) {
-            errors.rejectValue("reference", "product.reference.required",
-                    "Saisis une référence d'article.");
-        } else if (reference.length() > 30) {
-            errors.rejectValue("reference", "product.reference.tooLong",
-                    "La référence ne peut pas dépasser 30 caractères.");
-        } else {
+        if (!errors.hasErrors()) {
+            String reference = formulaireDeRechercheDArticle.getReference();
             product = catalogService.findByReference(reference);
             if (product == null) {
                 errors.rejectValue("reference", "product.reference.unknown",
